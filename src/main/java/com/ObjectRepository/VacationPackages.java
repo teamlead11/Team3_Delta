@@ -238,19 +238,5 @@ public class VacationPackages extends FunctionalLibrary {
 
 	}
 
-	public void adultFirstName(int value, String name) {
-		List<WebElement> listOfAdultNames = driver
-				.findElements(By.xpath("//label[text()='first name*']//following-sibling::input"));
-		int AdultCount = listOfAdultNames.size();
-		for (int i = 0; i < AdultCount; i++) {
-			WebElement adultName = driver.findElement(By.id(("chFname"+ i +"")));
-			adultName.sendKeys(name);
-			if (adultName.equals("chFname"+value)) {
-				click(adultName);
-
-			}
-
-		}
-	}
 
 }// label[text()='first name*']//following-sibling::input
