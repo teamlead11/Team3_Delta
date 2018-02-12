@@ -27,7 +27,9 @@ public class Vacation extends FunctionalLibrary {
 		selectByValue(v.getTxtToLocation(), "YYC");
 		setText(v.getDepartureDate(), "02/15/2018");
 		setText(v.getReturnDate(), "02/18/2018");
-		v.dropDown("1");
+//		click(v.getDrpdwnAdult());
+//		dropdownMethodsWithoutClickOption(driver.findElement(By.xpath("//ul[@id='adultCount-menu']")), "1");
+		dropDownMethodsWithClickOption(v.getDrpdwnAdult(),driver.findElement(By.xpath("//ul[@id='adultCount-menu']")),"1");
 		Thread.sleep(1500);
 		click(v.getBtnSubmit());
 	}
@@ -36,7 +38,7 @@ public class Vacation extends FunctionalLibrary {
 	public void i_book_the_hotel_with_lowest_price() throws Throwable {
 		VacationPackages v = new VacationPackages();
 		Thread.sleep(5000);
-		v.sortingTheHotel("price");
+		dropdownMethodsWithoutClickOption(driver.findElement(By.id("stateProv-menu")), "price");
 		Thread.sleep(5000);
 		click(v.getBtnSelect());
 		click(v.getLoadBtn());

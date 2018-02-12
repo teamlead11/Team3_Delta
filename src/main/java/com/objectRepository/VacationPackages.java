@@ -177,6 +177,20 @@ public class VacationPackages extends FunctionalLibrary {
 		}
 	}
 
+	public static void dropDownMethods(WebElement clickingTab, WebElement listToBeDisplayed, String Value) {
+		click(clickingTab);
+		if (listToBeDisplayed.isEnabled()) {
+			List<WebElement> dropDown = listToBeDisplayed.findElements(By.tagName("li"));
+			for (WebElement x : dropDown) {
+				String text = x.getText();
+				System.out.println(text);
+				if (text.equals(Value)) {
+				}
+				click(x);
+			}
+		}
+	}
+
 	public void sortingTheHotel(String name) {
 		click(getDrpDownSort());
 		WebElement hotelList = driver.findElement(By.id("stateProv-menu"));
@@ -224,4 +238,20 @@ public class VacationPackages extends FunctionalLibrary {
 
 	}
 
-}
+	public void adultFirstName(int value, String name) {
+
+		List<WebElement> listOfAdultNames = driver
+				.findElements(By.xpath("//label[text()='first name*']//following-sibling::input"));
+		int AdultCount = listOfAdultNames.size();
+		for (int i = 0; i < AdultCount; i++) {
+			WebElement adultName = driver.findElement(By.id(("chFname[" + i + "]")));
+			adultName.sendKeys(name);
+			if (adultName.equals(value)) {
+				click(adultName);
+
+			}
+
+		}
+	}
+
+}// label[text()='first name*']//following-sibling::input
