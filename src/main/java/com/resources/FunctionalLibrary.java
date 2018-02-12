@@ -938,15 +938,14 @@ public class FunctionalLibrary {
 	}
 
 	public void adultFirstName(int value, String name) {
-
 		List<WebElement> listOfAdultNames = driver
 				.findElements(By.xpath("//label[text()='first name*']//following-sibling::input"));
 		int AdultCount = listOfAdultNames.size();
-		for (int i = 0; i < AdultCount; i++) {
+		for (int i = 1; i < AdultCount; i++) {
 			WebElement adultName = driver.findElement(By.id(("chFname" + i + "]")));
 			adultName.sendKeys(name);
-			if (adultName.equals(value)) {
-				click(adultName);
+			if (adultName.equals("chFname" + value)) {
+				setText(adultName, name);
 
 			}
 
