@@ -937,16 +937,15 @@ public class FunctionalLibrary {
 		}
 	}
 
-	public void adultFirstName(int value, String name) {
+	public static void adultFirstName(String value, String name) {
 		List<WebElement> listOfAdultNames = driver
 				.findElements(By.xpath("//label[text()='first name*']//following-sibling::input"));
 		int AdultCount = listOfAdultNames.size();
 		for (int i = 1; i < AdultCount; i++) {
-			WebElement adultName = driver.findElement(By.id(("chFname" + i + "]")));
-			adultName.sendKeys(name);
-			if (adultName.equals("chFname" + value)) {
+			WebElement adultName = driver.findElement(By.id(("chFname" + i + "")));
+			String attributeValue = adultName.getAttribute("id");
+			if (attributeValue.equals("chFname" + value)) {
 				setText(adultName, name);
-
 			}
 
 		}
