@@ -66,8 +66,8 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
 		}
 		extentReports = new ExtentReports();
 		extentReports.attachReporter(htmlReporter);
-		//uncomment the below step when DB report is needed
-		//extentReports.attachReporter(htmlReporter,getExtentXReporter());
+		// uncomment the below step when DB report is needed
+		// extentReports.attachReporter(htmlReporter,getExtentXReporter());
 	}
 
 	static ExtentReports getExtentReport() {
@@ -230,22 +230,22 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
 	public void write(String text) {
 
 	}
-	
-private static ExtentXReporter getExtentXReporter() {
-    	
-        ExtentXReporter extentx = new ExtentXReporter("10.28.177.64", 27017);
 
-        // project name
-        //extentx.config().setProjectName("test11");
-        extentx.config().setProjectName("AccountReceivables");
+	private static ExtentXReporter getExtentXReporter() {
 
-        // report or build name
-        extentx.config().setReportName("build#01");
+		ExtentXReporter extentx = new ExtentXReporter("10.28.177.64", 27017);
 
-        // server URL
-        // ! must provide this to be able to upload snapshots
-        extentx.config().setServerUrl("http://10.28.177.64:1337");
+		// project name
+		// extentx.config().setProjectName("test11");
+		extentx.config().setProjectName("AccountReceivables");
 
-        return extentx;
-    }
+		// report or build name
+		extentx.config().setReportName("build#01");
+
+		// server URL
+		// ! must provide this to be able to upload snapshots
+		extentx.config().setServerUrl("http://10.28.177.64:1337");
+
+		return extentx;
+	}
 }

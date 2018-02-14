@@ -363,8 +363,7 @@ public class FunctionalLibrary {
 	}
 
 	/**
-	 * To create a connectivity to Database and update the scenario execution
-	 * status
+	 * To create a connectivity to Database and update the scenario execution status
 	 */
 	public static void createDBConnection(String scName, String scStatus) {
 		try {
@@ -453,7 +452,6 @@ public class FunctionalLibrary {
 		}
 
 	}
-
 
 	public static String getRandomString(int length) {
 		char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
@@ -911,6 +909,48 @@ public class FunctionalLibrary {
 				.post("/chains/{chains}/hotels/{hotels}/inventory/oooCode", 1, 15222);
 		System.out.println("verify" + requestSpecification.toString());
 		return requestSpecification;
+	}
+
+	public static void dropDownMethodsWithClickOption(WebElement clickingTab, WebElement listToBeDisplayed,
+			String Value) {
+		click(clickingTab);
+		if (listToBeDisplayed.isEnabled()) {
+			List<WebElement> dropDown = listToBeDisplayed.findElements(By.tagName("li"));
+			for (WebElement x : dropDown) {
+				String text = x.getText();
+				System.out.println(text);
+				if (text.equals(Value)) {
+				}
+				click(x);
+			}
+		}
+	}
+
+	public static void dropdownMethodsWithoutClickOption(WebElement listOfElements, String Names) {
+		if (listOfElements.isEnabled()) {
+			List<WebElement> dropDown = listOfElements.findElements(By.tagName("li"));
+			for (WebElement x : dropDown) {
+				String text = x.getText();
+				System.out.println(text);
+				if (text.equals(Names)) {
+				}
+				click(x);
+			}
+		}
+	}
+
+	public static void adultFirstName(String value, String name) {
+		List<WebElement> listOfAdultNames = driver
+				.findElements(By.xpath("//label[text()='first name*']//following-sibling::input"));
+		int AdultCount = listOfAdultNames.size();
+		for (int i = 1; i < AdultCount; i++) {
+			WebElement adultName = driver.findElement(By.id(("chFname" + i + "")));
+			String attributeValue = adultName.getAttribute("id");
+			if (attributeValue.equals("chFname" + value)) {
+				setText(adultName, name);
+			}
+
+		}
 	}
 
 }
