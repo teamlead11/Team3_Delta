@@ -1,5 +1,7 @@
 package com.ObjectRepository;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,7 +14,7 @@ public class Hotel {
 	private WebElement Hotelbook;
 	
 	
-	@FindBy(xpath = "//input[@name='hotelSearchCriteria.destinationCityCode']")
+	@FindBy(id="hotelLocation")
 	private WebElement txtSearch;
 	
 	@FindBy(xpath = "//input[@name='checkInDate']")
@@ -76,6 +78,10 @@ public class Hotel {
 		return clkbreakfast;
 	}
 	
+	public WebElement getPool() {
+		return pool;
+	}
+	
 	public WebElement getFour() {
 		return fourstar;
 	}
@@ -98,6 +104,14 @@ public class Hotel {
 	}
 
 	
+	public void Clickopt(WebElement element) {
+
+			
+
+	}
 	
+	public void SetTextInput(WebElement element,String Value) {
+    element.sendKeys(Value);
+	}
 
 }
