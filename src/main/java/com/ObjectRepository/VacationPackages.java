@@ -3,6 +3,7 @@ package com.ObjectRepository;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -61,6 +62,9 @@ public class VacationPackages extends FunctionalLibrary {
 	@FindBy(xpath = "//button[text()='Next']")
 	private WebElement loadBtn;
 
+	@FindBy(xpath = "//button[@id='loadChooseYourExtra']")
+	private WebElement nextButton;
+
 	@FindBy(xpath = "(//button[text()='ADD'])[2]")
 	private WebElement btnAddCar;
 
@@ -90,6 +94,10 @@ public class VacationPackages extends FunctionalLibrary {
 
 	public WebElement getDrpDownSort() {
 		return drpDownSort;
+	}
+
+	public WebElement getNextButton() {
+		return nextButton;
 	}
 
 	public WebElement getBtnSelectOutboundFlight() {
@@ -238,5 +246,9 @@ public class VacationPackages extends FunctionalLibrary {
 
 	}
 
+	public void scrollDownByPixles() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBY(0,500)");
+	}
 
 }// label[text()='first name*']//following-sibling::input

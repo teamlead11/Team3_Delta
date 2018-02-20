@@ -37,7 +37,7 @@ public class Vacation extends FunctionalLibrary {
 	public void i_book_the_hotel_with_lowest_price() throws Throwable {
 		VacationPackages v = new VacationPackages();
 		Thread.sleep(5000);
-		dropdownMethodsWithoutClickOption(driver.findElement(By.id("stateProv-menu")), "price");
+		v.sortingTheHotel("price");
 		Thread.sleep(5000);
 		click(v.getBtnSelect());
 		click(v.getLoadBtn());
@@ -58,9 +58,8 @@ public class Vacation extends FunctionalLibrary {
 	public void i_book_the_return_flight_with_lowest_price() throws Throwable {
 		VacationPackages v = new VacationPackages();
 		v.sortingOutboundFlight("price");
-		Thread.sleep(1500);
 		click(v.getBtnSelectOutboundFlight());
-		click(v.getLoadBtn());
+		click(v.getNextButton());
 
 	}
 
@@ -97,7 +96,6 @@ public class Vacation extends FunctionalLibrary {
 		t.primaryDriverSelection("rajasekar");
 		click(t.getNextButton());
 
-		
 	}
 
 	@Then("^I verify the travellers information$")
