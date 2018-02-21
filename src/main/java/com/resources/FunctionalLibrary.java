@@ -51,10 +51,10 @@ public class FunctionalLibrary {
 	private static String homeWindow = null;
 
 	public static WebDriver driverInit() {
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Dell/git/21 feb/Team3_Delta/src/test/resources/lib/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		return driver;
 
